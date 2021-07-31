@@ -112,7 +112,7 @@ void	exec_other_cmd(t_micro *shell, char **env)
 	int		pipe_use = 0;
 	int		st;
 
-	if (shell->type == T_PIPE || shell->prev && shell->prev->type == T_PIPE)
+	if (shell->type == T_PIPE || (shell->prev && shell->prev->type == T_PIPE))
 	{
 		pipe_use = 1;
 		if (pipe(shell->fd))
