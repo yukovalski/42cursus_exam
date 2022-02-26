@@ -13,7 +13,13 @@ SpellBook &SpellBook::operator=(SpellBook const &value)
 
 SpellBook::~SpellBook()
 {
-	
+	std::map<std::string, ASpell *>::iterator begginer = arr.begin();
+	std::map<std::string, ASpell *>::iterator ender = arr.end();
+	while(begginer != ender)
+		delete begginer->second;
+		begginer++;
+	arr.clear(); 
+
 }
 
 void SpellBook::learnSpell(ASpell *val)
